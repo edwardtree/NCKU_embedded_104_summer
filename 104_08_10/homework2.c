@@ -26,10 +26,7 @@ PhoneBook FindName(char Last[], PhoneBook *pHead) {
     while (pHead != NULL) {
         if (strcmp(Last, pHead->LastName) == 0) 
 	{
-    		int k;
-		for( k=0 ; k<16 ; k++ )
-		printf("%c\n", pHead->LastName[k]);      				
-		
+    	
 		return *pHead;
         }
 	pHead = pHead->pNext;
@@ -82,27 +79,14 @@ int main(void)
 	int i,j;
 
 	*ptr = Create_PhoneBook();//Default 
-
-	//for( j=0 ; j<16 ; j++)
-	//	printf("ptr3 = %c\n ", ptr -> LastName[j]);
+	
+	sprintf( ptr1 -> LastName, "Nea");
+	
+	*ptr2 = FindName( ptr1 -> LastName ,ptr );			
+	
 		
-	sprintf( ptr1 -> LastName, "Ne");
-	//*ptr2 = FindName( ptr1 -> LastName ,ptr );			
-	
-	/*	
 	for( j=0 ; j<16 ; j++)
-		printf("%c ", ptr2 -> LastName[j]);
-	*/
-	
-			
-	//印出	
-	while( ptr != NULL )
-	{ 
-		for( j=0 ; j<16 ; j++)
-		printf("%c ", ptr -> LastName[j]);
-		printf("\n");
-		ptr = ptr -> pNext;
-	}
+		printf("%c\n", ptr2 -> LastName[j]);
 	
 	return 0 ;
 	
