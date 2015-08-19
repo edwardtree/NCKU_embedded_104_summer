@@ -93,7 +93,7 @@ int main(void)
 	*ptr = Create_PhoneBook();//Default phonebook size is 100. 
 	*ptr3 = Create_Cache();// Default Cache size is 4.
 	
-	ptr3_front -> Next = ptr3;// Record the address of first cache
+	ptr3_front  = ptr3;// Record the address of first cache
 
 	int Address_tag, Address_index, Address_byte_offset;// CPU byte address : tage, index, byte offset.
 		
@@ -109,6 +109,8 @@ int main(void)
 			Address_index--;
 		}
 		
+		printf("index[0] = %c 	tag = %d	Address_tag = %d\n",ptr3->index[0] , ptr3->tag , Address_tag);
+			
 		/* 113 ~ 118 : Record which phonebook need to replace when cache miss. */
 		int point_to_which_phonebook_entry = Address_tag;
 		while( point_to_which_phonebook_entry > 0 )
@@ -126,7 +128,7 @@ int main(void)
 			for( j=0 ; j<16 ; j++)
                              ptr3 -> data[j] = ptr -> LastName[j]; 
 		}
-		else if( ptr3->index[0] == '1' &&  ptr3 -> tag != Address_tag)
+		else if( (ptr3->index[0] == '1') &&  (ptr3 -> tag  != Address_tag))
 		{
 			printf("Conflict Miss\n");
 			ptr3 -> tag = Address_tag;
@@ -138,7 +140,7 @@ int main(void)
 			printf("Cache Hit\n");
 		}
 	
-		ptr3 = ptr3_front -> Next;		
+		ptr3 = ptr3_front;		
 	}
 	
 	fclose(fptr_output);		
