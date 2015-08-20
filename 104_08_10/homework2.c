@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 test1
+=======
+test222222
+>>>>>>> fix_mem_assign_method
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
